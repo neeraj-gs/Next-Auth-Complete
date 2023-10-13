@@ -1,0 +1,18 @@
+Complete Next-Auth Authenticatoin
+   Can use this inside any nextjs proejcts
+   3 providers
+      1.Credentials PRovider - username or email or password to authenticate
+      2.Oauth Provider - Google,Github,Facebook etc...
+
+   Credentials provider only authenticates user does not allow us to register usrs, so we need to craete a api end point
+AFter authentication we will store users in MOngoDB and Prisma ORM 
+
+
+
+
+
+
+
+
+
+
