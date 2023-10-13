@@ -39,4 +39,9 @@ export const authOptions = {
    debug: process.env.NODE_ENV === "development",
 }
 
-const handler = NextAuth(authOptions)
+const handler = NextAuth(authOptions) //we need to export as a handler
+//in rotuer using Nextjs we cant export handler , in api route fiel we need to expose by a http request any metord
+export {handler as GET,handler as POST}
+//next-auth automcatically priovides a pre-built login page for testing purpise
+
+
