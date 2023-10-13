@@ -51,3 +51,4 @@ model Account { //this is the database table of account
   //ensures combination of both soudl be unique , to prevent duplicate entries with same provider and identifier
 }
 
+//to access prisma on the client side ,globally we need a prisma-cleint
