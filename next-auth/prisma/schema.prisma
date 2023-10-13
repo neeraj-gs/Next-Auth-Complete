@@ -10,20 +10,27 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
+//id makes it a primary key of the table
+//defautl auto intilaise some default value
+//map _id -- this maps the field name in prisma model to _id in the database
+//db.ObjectId --- field is treated as ObjectId in db, ususally in nosql db's
+//unique -- specifies no duplicates allowed
+
+
+model User { //this is a database table of users
   id             String    @id @default(auto()) @map("_id") @db.ObjectId
-  name       String?
+  name       String? //? can be null
   email          String?   @unique
-  emailVerified  DateTime?
+  emailVerified  DateTime? //can store date and time
   image          String?
   hashedPassword String?
-  createdAt      DateTime  @default(now())
-  updatedAt      DateTime  @updatedAt
+  createdAt      DateTime  @default(now()) //sets date and time to the current time and connot be empty
+  updatedAt      DateTime  @updatedAt //updates the field with current date adn time whenever the record is updated
 
-  accounts Account[]
+  accounts Account[] //defines realtionship , of one to maany , one user can have multiple accounts
 }
 
-model Account {
+model Account { //this is the database table of account
   id                String  @id @default(auto()) @map("_id") @db.ObjectId
   userId            String  @db.ObjectId
   type              String
@@ -37,8 +44,10 @@ model Account {
   id_token          String? @db.String
   session_state     String?
 
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade) //defines realtionship between accoutn and user specifies userId references user model id as a foregin key
+//oncascade - if user is deleted the accoutns related to use is also deleted
 
   @@unique([provider, providerAccountId])
+  //ensures combination of both soudl be unique , to prevent duplicate entries with same provider and identifier
 }
 
