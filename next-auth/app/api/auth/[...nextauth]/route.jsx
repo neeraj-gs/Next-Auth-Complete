@@ -34,7 +34,11 @@ export const authOptions = {
    ],
    secret: process.env.SECRET,
    session:{
-      strategy:"jwt",
+      strategy:"jwt", //the session token is the one that allows us to send the users data ont ot he browser or render user information
+      //gives sesion data and any inforation to cleint , can access the token
+      //2 ways to access data 
+      //1. SErver Side Rendering
+      //2.CLeint side Rendering
    },
    debug: process.env.NODE_ENV === "development",
 }
