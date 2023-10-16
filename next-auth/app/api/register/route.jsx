@@ -3,10 +3,10 @@ import { NextResponse } from 'next/server'; //allows us to send responses back t
 import prisma from '../../libs/prismadb';
 
 export async function POST(request){ //we dont name functino in routes we only call usign the http methord
-   const body = request.json();
+   const body = await request.json(); //we need to await , or else it goes thoright the fucntion and doe snot wait it 
    const {name,email,password} = body;
 
-   if(!name ||!email || !password){
+   if(!name || !email || !password){
       return new NextResponse('MIssing Fields',{status:400})
    }
 
