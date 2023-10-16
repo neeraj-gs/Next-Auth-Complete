@@ -7,7 +7,7 @@ import toast from "react-hot-toast";
 
 
 export default function Login() {
-  const session = useSession()
+  const {data:session} = useSession()
   const router = useRouter();
   const [data,setData] = useState({
     email:'',
