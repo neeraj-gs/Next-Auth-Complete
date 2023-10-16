@@ -1,6 +1,7 @@
 //main entry point of our next-auth apllication
 
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
+import bcypt from 'bcrypt';
 import NextAuth from "next-auth/next";
 import CredentialsProvider from "next-auth/providers/credentials";
 import GithubProvider from 'next-auth/providers/github';
@@ -50,7 +51,15 @@ export const authOptions = {
 
             //if user exists we need ot check to see if password workds
             //to check passwor dwe use bcrypt compare fucntion
+            const isMatch = await bcypt.compare(credentials.password,user.hashedPassword);
+            //first take user password on sign in and compare it with hashed password in database
 
+            if(!isMatch){
+               throw new Error('Incorrect Password');
+            }
+
+            //if all is good return the user
+            return user; //they have logged in with the user in teh database
 
          }
       }),
