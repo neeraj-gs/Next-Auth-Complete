@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from "react"
+import { useState } from "react";
 
 export default function Login() {
 
@@ -8,6 +8,10 @@ export default function Login() {
     email:'',
     password:''
   })
+
+  const loginUser = async (e)=>{
+    e.preventDefault();
+  }
 
   return (
     <>
@@ -24,7 +28,7 @@ export default function Login() {
         </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form className="space-y-6" action="#" method="POST">
+          <form className="space-y-6" onSubmit={loginUser}>
             <div>
               <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
                 Email address
