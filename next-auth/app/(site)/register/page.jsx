@@ -12,6 +12,13 @@ export default function Register() {
 
 		const registerUser = async (e)=>{
 			e.preventDefault()
+			axios.post('/api/register', data) //data is the onchenge values
+			.then((res)=>{
+            alert('User Registered')
+         })
+			.catch((err)=>{
+            alert('Error Occured')
+         })
 		}
 
   return (
