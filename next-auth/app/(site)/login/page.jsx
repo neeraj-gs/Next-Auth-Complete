@@ -18,7 +18,7 @@ export default function Login() {
       if(callback?.error){
         toast.error(callback.error)
       }
-      if(callback?.ok && callback?.error){
+      if(callback?.ok && !callback?.error){
           toast.success('Logged in Successfully')
       }
     })
