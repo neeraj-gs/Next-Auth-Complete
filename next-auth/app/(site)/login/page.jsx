@@ -94,8 +94,8 @@ export default function Login() {
             </div>
           </form>
 
-          <h6>Sign in Using Github</h6>
-          <button onClick={()=> signIn('github')} className="bg-indigo-600 text-white w-full"></button>
+          <h6>Instead? Sign in Using:</h6>
+          <button onClick={() => signIn('github')} className="bg-indigo-600 text-white w-full">Sign in Using Github</button>
 
           <p className="mt-10 text-center text-sm text-gray-500">
             Not a member?{' '}
