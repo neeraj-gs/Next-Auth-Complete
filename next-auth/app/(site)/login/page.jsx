@@ -1,7 +1,7 @@
 'use client'
 
 import { signIn } from "next-auth/react";
-import { useSession, useState } from "react";
+import { useState } from "react";
 import toast from "react-hot-toast";
 
 export default function Login() {
@@ -96,7 +96,10 @@ export default function Login() {
 
           <h6>Instead? Sign in Using:</h6>
           <button onClick={() => signIn('github')} className="bg-indigo-600 text-white w-full">Sign in Using Github</button>
-          <button onClick={() => signIn('google')} className="bg-indigo-600 text-white w-full">Sign in Using Google</button>
+          <br />
+          <br />
+          {/* <button onClick={() => signIn('google')} className="bg-green-600 text-white w-full">Sign in Using Google</button> */}
+          {/* simialrly we can do it for GOogle like github as well */}
 
           <p className="mt-10 text-center text-sm text-gray-500">
             Not a member?{' '}
