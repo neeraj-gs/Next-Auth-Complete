@@ -96,6 +96,7 @@ export default function Login() {
 
           <h6>Instead? Sign in Using:</h6>
           <button onClick={() => signIn('github')} className="bg-indigo-600 text-white w-full">Sign in Using Github</button>
+          <button onClick={() => signIn('google')} className="bg-indigo-600 text-white w-full">Sign in Using Google</button>
 
           <p className="mt-10 text-center text-sm text-gray-500">
             Not a member?{' '}
