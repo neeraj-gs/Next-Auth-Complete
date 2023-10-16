@@ -1,6 +1,14 @@
 'use client'
 
+import { useState } from "react"
+
 export default function Login() {
+
+  const [data,setData] = useState({
+    email:'',
+    password:''
+  })
+
   return (
     <>
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
@@ -28,6 +36,8 @@ export default function Login() {
                   type="email"
                   autoComplete="email"
                   required
+                  value={data.email}
+                  onChange={e=>setData({...data,email:e.target.value})}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
@@ -51,6 +61,8 @@ export default function Login() {
                   type="password"
                   autoComplete="current-password"
                   required
+                  value={data.password}
+                  onChange={e=>setData({...data, password: e.target.value})}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
