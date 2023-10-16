@@ -29,5 +29,7 @@ export async function POST(request){ //we dont name functino in routes we only c
          email,
          hashedPassword
       }
-   })
+   });
+
+   return NextResponse.json(user)
 }
