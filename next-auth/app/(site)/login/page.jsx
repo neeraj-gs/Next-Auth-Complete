@@ -1,5 +1,6 @@
 'use client'
 
+import { signIn } from "next-auth/react";
 import { useState } from "react";
 
 export default function Login() {
@@ -11,6 +12,9 @@ export default function Login() {
 
   const loginUser = async (e)=>{
     e.preventDefault();
+    signIn('credentials',{...data,redirect:false}) //it is a function provided by next-auth to connect frontedna dn abackend
+    .then(()=>alert('Login success'))
+
   }
 
   return (
