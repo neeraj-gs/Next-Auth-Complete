@@ -1,6 +1,6 @@
-'use client' //we mark the page if we use any hooksor providers
+'use client' //we mark the page if we use any hooks or providers
 
-import {SessionProvider} from 'next-auth/react'
+import { SessionProvider } from 'next-auth/react'
 
 export default function Provider({children}){
    return (
