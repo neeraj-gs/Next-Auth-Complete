@@ -1,15 +1,24 @@
 'use client'
 
-import { signIn } from "next-auth/react";
-import { useState } from "react";
+import { signIn, useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
-export default function Login() {
 
+export default function Login() {
+  const session = useSession()
+  const router = useRouter();
   const [data,setData] = useState({
     email:'',
     password:''
   })
+
+  useEffect(()=>{
+    if(session?.status === 'authenticated'){
+      router.push('/dashboard')
+    }
+  },[])
 
   const loginUser = async (e)=>{
     e.preventDefault();
